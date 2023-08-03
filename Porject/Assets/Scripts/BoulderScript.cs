@@ -17,7 +17,7 @@ public class BoulderScript : MonoBehaviour
         startPos = transform.position;
         rb = GetComponent<Rigidbody>();
         rb.AddForce(Vector3.up * thrust, ForceMode.Impulse);
-        playerSpawn = GameObject.Find("PlayerSpawn").transform;                  
+        playerSpawn = GameObject.Find("PlayerSpawn").transform;
     }
 
 
@@ -37,10 +37,12 @@ public class BoulderScript : MonoBehaviour
         {
             Debug.Log("Boulder hit the player!");
             ResetBoulder();
+            //Disables Character Controller
             collision.gameObject.transform.parent.GetComponent<CharacterController>().enabled = false;
+            //Teleports back to Player Spawn
             collision.gameObject.transform.parent.position = playerSpawn.position;
+            //Turns back on Character controller.
             collision.gameObject.transform.parent.GetComponent<CharacterController>().enabled = true;
-
         }
     }
 

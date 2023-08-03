@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class EndTrigger : MonoBehaviour
 {
     public TMP_Text messageBox;
@@ -12,7 +13,6 @@ public class EndTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         
     }
 
@@ -21,13 +21,19 @@ public class EndTrigger : MonoBehaviour
     {
         
     }
+
     private void OnTriggerEnter(Collider other)
     {
         messageBox.enabled = true;
-        messageBox.text = "You Win";
+        messageBox.text = "You Win!!";
+        playerController.enabled = false;
+        StartCoroutine(SwitchCamera());
+
+    }
+    IEnumerator SwitchCamera()
+    {
+        yield return new WaitForSeconds(2.0f);
         endCamera.SetActive(true);
         playerCamera.SetActive(false);
-        playerController.enabled = false;
-
     }
 }
