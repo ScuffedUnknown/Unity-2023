@@ -23,6 +23,6 @@ public class DiceScript : MonoBehaviour
     {
         transform.position = throwPos.position;
         rb.velocity = Vector3.zero;
-        rb.AddForce(new Vector3(Random.Range(-3,-6),2,0), ForceMode.Impulse);
+        rb.AddForce(new Vector3(Random.Range(-5,-8),2,0), ForceMode.Impulse);
     }
 }
