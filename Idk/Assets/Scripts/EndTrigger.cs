@@ -30,10 +30,12 @@ public class EndTrigger : MonoBehaviour
         StartCoroutine(SwitchCamera());
 
     }
+
     IEnumerator SwitchCamera()
     {
         yield return new WaitForSeconds(2.0f);
         endCamera.SetActive(true);
         playerCamera.SetActive(false);
+
     }
 }
