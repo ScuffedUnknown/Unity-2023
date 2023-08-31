@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DiceScript : MonoBehaviour
 {
-    public Transform throwPos;
+    public Transform thrownPos;
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-       //transform.rotation = Random.rotation;
-        throwPos = GameObject.Find("ThrowPlace").transform;
+        transform.rotation = Random.rotation;
+        thrownPos = GameObject.Find("ThrowPosition").transform;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -19,10 +19,13 @@ public class DiceScript : MonoBehaviour
     {
         
     }
+
     private void OnMouseDown()
     {
-        transform.position = throwPos.position;
+        transform.position = thrownPos.position;
         rb.velocity = Vector3.zero;
-        rb.AddForce(new Vector3(Random.Range(-5,-8),2,0), ForceMode.Impulse);
+        rb.AddForce(new Vector3(Random.Range(-5,-8), 2, 0), ForceMode.Impulse);
+
     }
+ 
 }

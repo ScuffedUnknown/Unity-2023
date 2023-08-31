@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class TimerScript : MonoBehaviour
 {
     [SerializeField]
@@ -10,6 +11,7 @@ public class TimerScript : MonoBehaviour
     public int seconds;
     public float startTime;
     public bool isGameOver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,20 +28,20 @@ public class TimerScript : MonoBehaviour
         }
     }
 
-    void TimeUpdate() {
+    void TimeUpdate()
+    {
+        //increment the time.
         startTime += Time.deltaTime;
-        minutes = Mathf.FloorToInt(startTime / 60);
-        seconds = Mathf.FloorToInt(startTime % 60);
+        minutes = Mathf.FloorToInt(startTime/60);
+        seconds = Mathf.FloorToInt(startTime%60);
 
-        if (seconds > 9)
+        if(seconds > 9)
         {
             timerHUD.text = $"{minutes}:{seconds}";
         }
         else
         {
             timerHUD.text = $"{minutes}:0{seconds}";
-
         }
     }
-    
 }
